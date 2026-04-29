@@ -29,7 +29,7 @@ export const CaseWorkspace: React.FC = () => {
             <MessageSquare size={16} style={{ marginRight: '8px' }} />
             {chatOpen ? 'Close Chat' : 'Agent Chat'}
           </Button>
-          <Button variant="primary">Resolve Case</Button>
+          <Button variant="primary" onClick={() => navigate(`/reports/smr/${id}`)}>Review SMR Draft</Button>
         </div>
       </div>
 

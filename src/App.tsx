@@ -5,6 +5,7 @@ import { ConfigurationPortal } from './pages/ConfigurationPortal';
 import { UserManagement } from './pages/UserManagement';
 import { AlertQueue } from './pages/AlertQueue';
 import { CaseWorkspace } from './pages/CaseWorkspace';
+import { SMRWorkspace } from './pages/SMRWorkspace';
 import './index.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="admin/users" element={<UserManagement />} />
           <Route path="alerts" element={<AlertQueue />} />
           <Route path="cases/:id" element={<CaseWorkspace />} />
+          <Route path="reports/smr/:caseId" element={<SMRWorkspace />} />
         </Route>
       </Routes>
     </BrowserRouter>

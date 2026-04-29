@@ -8,6 +8,7 @@ interface CardProps {
   className?: string;
   actions?: ReactNode;
   glass?: boolean;
+  style?: React.CSSProperties;
 }
 
 export const Card: React.FC<CardProps> = ({ 
@@ -16,10 +17,11 @@ export const Card: React.FC<CardProps> = ({
   description, 
   className = '', 
   actions,
-  glass = false
+  glass = false,
+  style
 }) => {
   return (
-    <div className={`${styles.card} ${glass ? 'glass' : ''} ${className}`}>
+    <div className={`${styles.card} ${glass ? 'glass' : ''} ${className}`} style={style}>
       {(title || description || actions) && (
         <div className={styles.header}>
           <div className={styles.headerContent}>
