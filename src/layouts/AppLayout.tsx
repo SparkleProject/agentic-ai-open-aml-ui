@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { Activity, Settings, Users, Moon, Sun, Shield, UserCheck, LineChart } from 'lucide-react';
+import { Activity, Settings, Users, Moon, Sun, Shield, UserCheck, LineChart, FileText } from 'lucide-react';
 import styles from './AppLayout.module.css';
 
 interface LayoutProps {
@@ -39,6 +39,13 @@ export const Layout: React.FC<LayoutProps> = ({ theme, toggleTheme }) => {
           >
             <LineChart size={20} />
             Responsible AI
+          </NavLink>
+          <NavLink 
+            to="/audit-trail" 
+            className={({ isActive }) => `${styles.navItem} ${isActive ? styles.active : ''}`}
+          >
+            <FileText size={20} />
+            Audit Trail
           </NavLink>
           
           <div className={styles.navSection}>COMPLIANCE</div>
