@@ -8,6 +8,7 @@ import { CaseWorkspace } from './pages/CaseWorkspace';
 import { SMRWorkspace } from './pages/SMRWorkspace';
 import { KYCDashboard } from './pages/KYCDashboard';
 import { KYCDetail } from './pages/KYCDetail';
+import { ResponsibleAIDashboard } from './pages/ResponsibleAIDashboard';
 import './index.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="reports/smr/:caseId" element={<SMRWorkspace />} />
           <Route path="kyc" element={<KYCDashboard />} />
           <Route path="kyc/:customerId" element={<KYCDetail />} />
+          <Route path="responsible-ai" element={<ResponsibleAIDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
