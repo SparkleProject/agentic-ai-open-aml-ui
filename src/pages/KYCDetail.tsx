@@ -7,14 +7,16 @@ import { VerificationBadge } from '../components/KYC/VerificationBadge';
 import { CDDChecklist } from '../components/KYC/CDDChecklist';
 import { RiskBreakdownChart } from '../components/KYC/RiskBreakdownChart';
 import { OnboardingProgress } from '../components/KYC/OnboardingProgress';
-import { ArrowLeft, Play, Download } from 'lucide-react';
+import { ArrowLeft, Play, Download, Network, X } from 'lucide-react';
 import { fetchMockKYCCustomer, type KYCCustomer } from '../services/mockKYCData';
+import { CorporateVisualiser } from '../components/KYC/CorporateStructure/CorporateVisualiser';
 
 export const KYCDetail: React.FC = () => {
   const { customerId } = useParams<{ customerId: string }>();
   const navigate = useNavigate();
   const [customer, setCustomer] = useState<KYCCustomer | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showStructure, setShowStructure] = useState(false);
 
   useEffect(() => {
     if (customerId) {
@@ -51,6 +53,10 @@ export const KYCDetail: React.FC = () => {
         </div>
 
         <div style={{ display: 'flex', gap: '8px' }}>
+          <Button variant="outline" onClick={() => setShowStructure(true)}>
+            <Network size={16} style={{ marginRight: '8px' }} />
+            View Corporate Structure
+          </Button>
           <Button variant="outline">
             <Download size={16} style={{ marginRight: '8px' }} />
             Export CDD Report
@@ -102,6 +108,47 @@ export const KYCDetail: React.FC = () => {
           <CDDChecklist items={customer.cddChecklist} />
         </div>
       </div>
+
+      {/* Corporate Structure Modal */}
+      {showStructure && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'var(--background)',
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center', 
+            padding: '16px 24px',
+            borderBottom: '1px solid hsla(var(--border) / 0.5)',
+            backgroundColor: 'hsla(var(--bg-elevated))'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div style={{ padding: '8px', borderRadius: '8px', backgroundColor: 'hsla(var(--primary-transparent))' }}>
+                <Network size={20} color="hsl(var(--primary))" />
+              </div>
+              <div>
+                <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Corporate Structure</h2>
+                <p style={{ fontSize: '0.875rem', color: 'hsl(var(--text-secondary))' }}>{customer.name}</p>
+              </div>
+            </div>
+            <Button variant="ghost" onClick={() => setShowStructure(false)}>
+              <X size={20} style={{ marginRight: '8px' }} />
+              Close
+            </Button>
+          </div>
+          <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+            {customerId && <CorporateVisualiser customerId={customerId} />}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
