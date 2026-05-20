@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '../Card/Card';
-import type { Transaction, SMRDraftPayload } from '../../services/mockSMRData';
+import type { SMRDraftPayload } from '../../services/mockSMRData';
 
 interface EvidenceViewerProps {
   evidence: SMRDraftPayload['evidenceContext'];

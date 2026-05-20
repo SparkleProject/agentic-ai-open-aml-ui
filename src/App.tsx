@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './layouts/AppLayout';
 import { ConfigurationPortal } from './pages/ConfigurationPortal';
@@ -6,6 +6,8 @@ import { UserManagement } from './pages/UserManagement';
 import { AlertQueue } from './pages/AlertQueue';
 import { CaseWorkspace } from './pages/CaseWorkspace';
 import { SMRWorkspace } from './pages/SMRWorkspace';
+import { KYCDashboard } from './pages/KYCDashboard';
+import { KYCDetail } from './pages/KYCDetail';
 import './index.css';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
           <Route path="alerts" element={<AlertQueue />} />
           <Route path="cases/:id" element={<CaseWorkspace />} />
           <Route path="reports/smr/:caseId" element={<SMRWorkspace />} />
+          <Route path="kyc" element={<KYCDashboard />} />
+          <Route path="kyc/:customerId" element={<KYCDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>

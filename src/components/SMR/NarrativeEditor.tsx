@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card } from '../Card/Card';
 import type { SMRDraftPayload } from '../../services/mockSMRData';
 import { Sparkles } from 'lucide-react';
