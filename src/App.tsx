@@ -10,6 +10,7 @@ import { KYCDashboard } from './pages/KYCDashboard';
 import { KYCDetail } from './pages/KYCDetail';
 import { ResponsibleAIDashboard } from './pages/ResponsibleAIDashboard';
 import { AuditTrailExplorer } from './pages/AuditTrailExplorer';
+import { ObservabilityDashboard } from './pages/ObservabilityDashboard';
 import './index.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route path="kyc/:customerId" element={<KYCDetail />} />
           <Route path="responsible-ai" element={<ResponsibleAIDashboard />} />
           <Route path="audit-trail" element={<AuditTrailExplorer />} />
+          <Route path="observability" element={<ObservabilityDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
