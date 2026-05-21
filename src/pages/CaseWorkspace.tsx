@@ -5,6 +5,7 @@ import { Button } from '../components/Button/Button';
 import { ArrowLeft, MessageSquare } from 'lucide-react';
 import { InvestigationTimeline } from '../components/Investigation/InvestigationTimeline';
 import { AgentChatPanel } from '../components/Chat/AgentChatPanel';
+import { RLHFWidget } from '../components/ResponsibleAI/RLHFWidget';
 
 export const CaseWorkspace: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -40,6 +41,7 @@ export const CaseWorkspace: React.FC = () => {
             <p style={{ color: 'hsl(var(--text-secondary))', lineHeight: 1.6 }}>
               The entity Global Trade Corp transferred $4.2M to multiple accounts in a high-risk jurisdiction (Jurisdiction X) over a 24-hour period. These transactions bypassed standard velocity thresholds. The AI agent recommends further investigation into beneficial ownership.
             </p>
+            <RLHFWidget />
           </Card>
 
           <InvestigationTimeline />
