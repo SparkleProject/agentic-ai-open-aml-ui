@@ -4,7 +4,8 @@ import { Button } from '../components/Button/Button';
 import { AuditFilterBar } from '../components/ResponsibleAI/AuditFilterBar';
 import { AuditTrailTable } from '../components/ResponsibleAI/AuditTrailTable';
 import { AuditDetailPanel } from '../components/ResponsibleAI/AuditDetailPanel';
-import { fetchAuditLogs, type AuditLogEntry } from '../services/mockAuditTrailData';
+import { fetchAuditLogs } from '../services/api';
+import type { AuditLogEntry } from '../services/mockAuditTrailData';
 
 export const AuditTrailExplorer: React.FC = () => {
   const [logs, setLogs] = useState<AuditLogEntry[]>([]);

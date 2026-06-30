@@ -15,7 +15,8 @@ import '@xyflow/react/dist/style.css';
 import { EntityNode } from './EntityNode';
 import { EntityDetailPanel } from './EntityDetailPanel';
 import { getLayoutedElements } from './graphLayoutUtils';
-import { fetchMockCorporateStructure, type CorporateEntity } from '../../../services/mockCorporateData';
+import { fetchCorporateStructure } from '../../../services/api';
+import type { CorporateEntity } from '../../../services/mockCorporateData';
 
 const nodeTypes = {
   entity: EntityNode,
@@ -33,7 +34,7 @@ export const CorporateVisualiser: React.FC<CorporateVisualiserProps> = ({ custom
 
   // Load and layout data
   useEffect(() => {
-    fetchMockCorporateStructure(customerId).then((data) => {
+    fetchCorporateStructure(customerId).then((data) => {
       const initialNodes: Node[] = data.entities.map(ent => ({
         id: ent.id,
         type: 'entity',

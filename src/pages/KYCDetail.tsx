@@ -8,7 +8,8 @@ import { CDDChecklist } from '../components/KYC/CDDChecklist';
 import { RiskBreakdownChart } from '../components/KYC/RiskBreakdownChart';
 import { OnboardingProgress } from '../components/KYC/OnboardingProgress';
 import { ArrowLeft, Play, Download, Network, X } from 'lucide-react';
-import { fetchMockKYCCustomer, type KYCCustomer } from '../services/mockKYCData';
+import { fetchKYCCustomer } from '../services/api';
+import type { KYCCustomer } from '../services/mockKYCData';
 import { CorporateVisualiser } from '../components/KYC/CorporateStructure/CorporateVisualiser';
 
 export const KYCDetail: React.FC = () => {
@@ -20,7 +21,7 @@ export const KYCDetail: React.FC = () => {
 
   useEffect(() => {
     if (customerId) {
-      fetchMockKYCCustomer(customerId).then(data => {
+      fetchKYCCustomer(customerId).then(data => {
         setCustomer(data);
         setLoading(false);
       });

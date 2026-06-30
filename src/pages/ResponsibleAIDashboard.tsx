@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  fetchResponsibleAIData, 
-  type AccuracyTrendPoint, 
-  type BiasMetric, 
-  type SegmentPerformance 
-} from '../services/mockResponsibleAIData';
+import { fetchResponsibleAIData } from '../services/api';
+import type { AccuracyTrendPoint, BiasMetric, SegmentPerformance } from '../services/mockResponsibleAIData';
 import { AccuracyTrendChart } from '../components/ResponsibleAI/AccuracyTrendChart';
 import { BiasMetricsCard } from '../components/ResponsibleAI/BiasMetricsCard';
 import { SegmentPerformanceChart } from '../components/ResponsibleAI/SegmentPerformanceChart';

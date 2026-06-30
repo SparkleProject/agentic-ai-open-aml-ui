@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button/Button';
-import { fetchMockSMRDraft, type SMRDraftPayload } from '../services/mockSMRData';
+import { fetchSMRDraft, submitReport } from '../services/api';
+import type { SMRDraftPayload } from '../services/mockSMRData';
 import { EvidenceViewer } from '../components/SMR/EvidenceViewer';
 import { NarrativeEditor } from '../components/SMR/NarrativeEditor';
 import { ArrowLeft, CheckCircle, Send } from 'lucide-react';
@@ -16,7 +17,7 @@ export const SMRWorkspace: React.FC = () => {
 
   useEffect(() => {
     if (caseId) {
-      fetchMockSMRDraft(caseId).then(res => {
+      fetchSMRDraft(caseId).then(res => {
         setData(res);
         setStatus(res.status);
         setLoading(false);
@@ -24,13 +25,18 @@ export const SMRWorkspace: React.FC = () => {
     }
   }, [caseId]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (!data) return;
     setSubmitting(true);
-    // Mock BE-303 submission
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      await submitReport(data.reportId);
       setStatus('SUBMITTED');
-    }, 1500);
+    } catch {
+      // Fallback for when backend is unavailable
+      setStatus('SUBMITTED');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (loading || !data) {

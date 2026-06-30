@@ -4,7 +4,8 @@ import { Card } from '../components/Card/Card';
 import { Button } from '../components/Button/Button';
 import { OnboardingProgress } from '../components/KYC/OnboardingProgress';
 import { Users, AlertTriangle, CheckCircle, UserPlus } from 'lucide-react';
-import { fetchMockKYCCustomers, type KYCCustomer, type RiskLevel } from '../services/mockKYCData';
+import { fetchKYCCustomers } from '../services/api';
+import type { KYCCustomer, RiskLevel } from '../services/mockKYCData';
 
 type FilterOption = RiskLevel | 'ALL';
 
@@ -15,7 +16,7 @@ export const KYCDashboard: React.FC = () => {
   const [filter, setFilter] = useState<FilterOption>('ALL');
 
   useEffect(() => {
-    fetchMockKYCCustomers().then(data => {
+    fetchKYCCustomers().then(data => {
       setCustomers(data);
       setLoading(false);
     });

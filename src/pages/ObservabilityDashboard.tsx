@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { fetchObservabilityData, type ObservabilityData } from '../services/mockObservabilityData';
+import { fetchObservabilityData } from '../services/api';
+import type { ObservabilityData } from '../services/mockObservabilityData';
 import { StatCard } from '../components/Observability/StatCard';
 import { ThroughputChart } from '../components/Observability/ThroughputChart';
 import { LatencyMetricsChart } from '../components/Observability/LatencyMetricsChart';
