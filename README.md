@@ -1,6 +1,6 @@
-# Agentic AI Open AML — Frontend
+# Agentic AI AML Platform — Frontend
 
-> React frontend for the Open AML compliance platform.
+> React frontend for the AML compliance platform.
 
 [![React 19](https://img.shields.io/badge/React-19-61dafb.svg)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6.svg)](https://typescriptlang.org)
@@ -8,7 +8,7 @@
 
 ## What is this?
 
-The analyst-facing UI for the [Agentic AI Open AML](https://github.com/SparkleProject/agentic-ai-open-aml) backend. Provides dashboards for alert investigation, KYC onboarding, regulatory report drafting, audit trail exploration, and user management.
+The analyst-facing UI for the Agentic AI AML backend. Provides dashboards for alert investigation, KYC onboarding, regulatory report drafting, audit trail exploration, and user management.
 
 ## Pages
 
@@ -32,7 +32,7 @@ The analyst-facing UI for the [Agentic AI Open AML](https://github.com/SparklePr
 ### Prerequisites
 
 - Node.js 20+
-- Backend running at `http://localhost:8000` (see [backend repo](https://github.com/SparkleProject/agentic-ai-open-aml))
+- Backend running at `http://localhost:8000`
 
 ### Setup
 
@@ -135,4 +135,4 @@ src/
 
 ## License
 
-Apache 2.0 — see backend repo for details.
+Proprietary. All rights reserved.
